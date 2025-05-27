@@ -10,7 +10,7 @@ export function Register() {
     const handleForm = (e) => {
         e.preventDefault();
         axios
-            .post(`${API}/api/register`, { email, password })
+            .post(`${API}/api/register/`, { email, password })
             .then(res => {
                 /* Si todo sale bien  */
                 localStorage.setItem('accessToken', res.data.access);
