@@ -16,7 +16,7 @@ export function Login({setLogueado}) {
         e.preventDefault();
 
         axios.post(
-            `${API}/aut/token`,{ username: email, password },)
+            `${API}/aut/token/`,{ username: email, password },)
         .then(res => {
             alert("Login Correcto");
             setEmail('');
