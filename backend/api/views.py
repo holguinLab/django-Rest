@@ -40,7 +40,8 @@ def register(request):
 @api_view(['GET']) # <<-------- Decorador que es lo mismo que hacer esto if request.method == 'GET':
 @permission_classes([IsAuthenticated])
 def listar_tareas(request):
-    tareas =  Tareas.objects.all()
+    user = request.user
+    tareas =  user.tareas_usuarios.all() # related name del modelo Tareas para mostrar las tareas que crea cada usuario
     serializer = TareaSerializer(tareas,many=True) # convierte tareas en un json many=true quiere decir que no es solo un campo si no muchos
     return Response(serializer.data)
 
