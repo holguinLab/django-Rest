@@ -24,7 +24,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','https://django-rest-3qrv.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','django-rest-3qrv.onrender.com']
 
 
 # Application definition
