@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function Login({setLogueado}) {
+    const API = import.meta.env.VITE_URL_API;
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +16,7 @@ export function Login({setLogueado}) {
         e.preventDefault();
 
         axios.post(
-            "http://127.0.0.1:8000/aut/token/",{ username: email, password },)
+            `${API}/aut/token`,{ username: email, password },)
         .then(res => {
             alert("Login Correcto");
             setEmail('');

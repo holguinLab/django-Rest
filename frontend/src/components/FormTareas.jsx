@@ -3,7 +3,7 @@ import { useState ,useEffect} from 'react'
 
 
 export function FormTareas({ onActualizarLista }) {
-
+    const API = import.meta.env.VITE_URL_API;
     const [titulo, setTitulo] = useState("")
     const [descripcion, setDescripcion] = useState('')
     const [errores, setErrores] = useState({})
@@ -16,7 +16,7 @@ export function FormTareas({ onActualizarLista }) {
 
     const handleForm = (e) => {
         e.preventDefault();
-        axios.post('http://127.0.0.1:8000/api/nueva_tarea/', { titulo, descripcion ,estado},{headers:{
+        axios.post(`${API}/api/nueva_tarea/`, { titulo, descripcion ,estado},{headers:{
             Authorization: `Bearer ${localStorage.getItem('token')}`
         }})
             .then(res => {
@@ -39,7 +39,7 @@ export function FormTareas({ onActualizarLista }) {
 
     const estadosTareas = () => {
     axios
-        .get("http://localhost:8000/api/estados", {
+        .get(`${API}/api/estados`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }

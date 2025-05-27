@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 export function Register() {
-
+    const API = import.meta.env.VITE_URL_API;
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errores, setErrores] = useState({})
@@ -10,7 +10,7 @@ export function Register() {
     const handleForm = (e) => {
         e.preventDefault();
         axios
-            .post("http://127.0.0.1:8000/api/register/", { email, password })
+            .post(`${API}/api/register`, { email, password })
             .then(res => {
                 /* Si todo sale bien  */
                 localStorage.setItem('accessToken', res.data.access);

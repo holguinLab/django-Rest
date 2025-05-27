@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FormTareas } from "./FormTareas";
 
 export function Lista() {
+    const API = import.meta.env.VITE_URL_API;
     const [tareas, setTareas] = useState([]);
     const [busqueda, setBusqueda] = useState('')
     const [estados, setEstados] = useState([])
@@ -14,7 +15,7 @@ export function Lista() {
 
     const actualizarLista = () => {
         axios
-            .get("http://localhost:8000/api/tareas", {
+            .get(`${API}/api/tareas`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
 
@@ -27,7 +28,7 @@ export function Lista() {
 
     const estadosTareas = () => {
         axios
-            .get("http://localhost:8000/api/estados", {
+            .get(`${API}/api/estados`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
