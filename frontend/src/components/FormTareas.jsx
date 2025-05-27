@@ -16,7 +16,7 @@ export function FormTareas({ onActualizarLista }) {
 
     const handleForm = (e) => {
         e.preventDefault();
-        axios.post(`${API}/api/nueva_tarea/`, { titulo, descripcion ,estado},{headers:{
+        axios.post(`${API}/api/nueva_tarea`, { titulo, descripcion ,estado},{headers:{
             Authorization: `Bearer ${localStorage.getItem('token')}`
         }})
             .then(res => {
